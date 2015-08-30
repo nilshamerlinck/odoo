@@ -5296,6 +5296,7 @@ instance.web.form.AbstractFormPopup = instance.web.Widget.extend({
         this.view_form.on("form_view_loaded", self, function() {
             var multi_select = self.row_id === null && ! self.options.disable_multiple_selection;
             self.$buttonpane.html(QWeb.render("AbstractFormPopup.buttons", {
+                widget:self,
                 multi_select: multi_select,
                 readonly: self.row_id !== null && self.options.readonly,
             }));
