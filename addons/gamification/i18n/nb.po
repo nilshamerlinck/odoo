@@ -3,12 +3,13 @@
 # * gamification
 # 
 # Translators:
+# Roy Edvard Ellingsen <roy@royedvard.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-30 12:39+0000\n"
-"PO-Revision-Date: 2015-10-21 11:43+0000\n"
+"POT-Creation-Date: 2016-09-22 13:18+0000\n"
+"PO-Revision-Date: 2016-09-23 09:49+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/odoo/odoo-9/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +198,7 @@ msgstr "Handling"
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_message_needaction
 #: model:ir.model.fields,field_description:gamification.field_gamification_challenge_message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Handling"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_active
@@ -591,7 +592,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_display_name
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_wizard_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Visnings navn"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_definition_display_mode
@@ -649,7 +650,7 @@ msgstr ""
 #. module: gamification
 #: selection:gamification.badge,rule_auth:0
 msgid "Everyone"
-msgstr ""
+msgstr "Alle"
 
 #. module: gamification
 #: selection:gamification.goal.definition,display_mode:0
@@ -1010,7 +1011,7 @@ msgstr "Siste meldingsdato"
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_definition___last_update
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_wizard___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Sist oppdatert "
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_challenge_last_report_date
@@ -1088,12 +1089,6 @@ msgid "Messages"
 msgstr "Meldinger."
 
 #. module: gamification
-#: model:ir.model.fields,help:gamification.field_gamification_badge_message_ids
-#: model:ir.model.fields,help:gamification.field_gamification_challenge_message_ids
-msgid "Messages and communication history"
-msgstr "Meldinger og kommunikasjon historie."
-
-#. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_goal_definition_model_id
 #: model:ir.ui.view,arch_db:gamification.goal_definition_search_view
 msgid "Model"
@@ -1153,7 +1148,7 @@ msgstr "Navn"
 #. module: gamification
 #: selection:gamification.challenge,report_message_frequency:0
 msgid "Never"
-msgstr ""
+msgstr "Aldri"
 
 #. module: gamification
 #: model:ir.model.fields,help:gamification.field_gamification_challenge_remind_update_delay
@@ -1205,19 +1200,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_message_needaction_counter
 #: model:ir.model.fields,field_description:gamification.field_gamification_challenge_message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Antall handlinger"
 
 #. module: gamification
 #: model:ir.model.fields,help:gamification.field_gamification_badge_message_needaction_counter
 #: model:ir.model.fields,help:gamification.field_gamification_challenge_message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Antall meldinger som krever handling"
 
 #. module: gamification
 #: model:ir.model.fields,help:gamification.field_gamification_badge_message_unread_counter
 #: model:ir.model.fields,help:gamification.field_gamification_challenge_message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Antall uleste meldinger"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_stat_count_distinct
@@ -1633,6 +1628,24 @@ msgstr ""
 #: model:ir.model.fields,help:gamification.field_gamification_badge_rule_max_number
 msgid ""
 "The maximum number of time this badge can be sent per month per person."
+msgstr ""
+
+#. module: gamification
+#: code:addons/gamification/models/goal.py:150
+#, python-format
+msgid ""
+"The model configuration for the definition %s seems incorrect, please check it.\n"
+"\n"
+"%s not found"
+msgstr ""
+
+#. module: gamification
+#: code:addons/gamification/models/goal.py:147
+#, python-format
+msgid ""
+"The model configuration for the definition %s seems incorrect, please check it.\n"
+"\n"
+"%s not stored"
 msgstr ""
 
 #. module: gamification

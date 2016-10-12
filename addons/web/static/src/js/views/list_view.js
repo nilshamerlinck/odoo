@@ -635,16 +635,21 @@ var ListView = View.extend( /** @lends instance.web.ListView# */ {
             _(ids).each(function (id) {
                 self.records.remove(self.records.get(id));
             });
-            if (self.records.length === 0 && self.dataset.size() > 0) {
-                //Trigger previous manually to navigate to previous page, 
-                //If all records are deleted on current page.
-                self.$pager.find('ul li:first a').trigger('click');
-            } else if (self.dataset.size() == self._limit) {
-                //Reload listview to update current page with next page records 
-                //because pager going to be hidden if dataset.size == limit
-                self.reload();
+            // Hide the table if there is no more record in the dataset
+            if (self.dataset.size() === 0) {
+                self.no_result();
             } else {
-                self.configure_pager(self.dataset);
+                if (self.records.length === 0 && self.dataset.size() > 0) {
+                    //Trigger previous manually to navigate to previous page,
+                    //If all records are deleted on current page.
+                    self.$pager.find('ul li:first a').trigger('click');
+                } else if (self.dataset.size() === self._limit) {
+                    //Reload listview to update current page with next page records
+                    //because pager going to be hidden if dataset.size == limit
+                    self.reload();
+                } else {
+                    self.configure_pager(self.dataset);
+                }
             }
             self.compute_aggregates();
         });
@@ -1172,14 +1177,14 @@ ListView.List = Class.extend( /** @lends instance.web.ListView.List# */{
                     ids = value;
                 }
                 new Model(column.relation)
-                    .call('name_get', [ids, this.dataset.context]).done(function (names) {
+                    .call('name_get', [ids, this.dataset.get_context()]).done(function (names) {
                         // FIXME: nth horrible hack in this poor listview
                         record.set(column.id + '__display',
                                    _(names).pluck(1).join(', '));
                         record.set(column.id, ids);
                     });
-                // temp empty value
-                record.set(column.id, false);
+                // temporary empty display name
+                record.set(column.id + '__display', false);
             }
         }
         return column.format(record.toForm().data, {
@@ -1818,7 +1823,6 @@ var Column = Class.extend({
             id: id,
             tag: tag
         });
-
         this.modifiers = attrs.modifiers ? JSON.parse(attrs.modifiers) : {};
         delete attrs.modifiers;
         _.extend(this, attrs);
@@ -1845,10 +1849,14 @@ var Column = Class.extend({
         if (this.type !== 'integer' && this.type !== 'float' && this.type !== 'monetary') {
             return {};
         }
-        var aggregation_func = this['group_operator'] || 'sum';
-        if (!(aggregation_func in this)) {
+
+        var aggregation_func = (this.sum && 'sum') || (this.avg && 'avg') ||
+                               (this.max && 'max') || (this.min && 'min') || this.group_operator;
+
+        if (!aggregation_func) {
             return {};
         }
+
         var C = function (fn, label) {
             this['function'] = fn;
             this.label = label;
@@ -1896,6 +1904,7 @@ var Column = Class.extend({
             row_data[this.id].value, this, options.value_if_empty));
     }
 });
+ListView.Column = Column;
 
 var MetaColumn = Column.extend({
     meta: true,

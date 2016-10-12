@@ -39,6 +39,10 @@ var Dialog = Widget.extend({
     close: function () {
         this.$el.modal('hide');
     },
+    destroy: function () {
+        this._super();
+        $("body:has('> .modal:visible')").addClass('modal-open');
+    },
     stop_escape: function(event) {
         if($(".modal.in").length>0 && event.which == 27){
             event.stopPropagation();
@@ -171,11 +175,8 @@ var MediaDialog = Dialog.extend({
         var self = this;
         if (self.media) {
             this.media.innerHTML = "";
-            if (this.active !== this.imageDialog) {
+            if (this.active !== this.imageDialog && this.active !== this.documentDialog) {
                 this.imageDialog.clear();
-            }
-            if (this.active !== this.documentDialog) {
-                this.documentDialog.clear();
             }
             // if not mode only_images
             if (this.iconDialog && this.active !== this.iconDialog) {
@@ -355,7 +356,7 @@ var ImageDialog = Widget.extend({
         return this.media;
     },
     clear: function () {
-        this.media.className = this.media.className.replace(/(^|\s+)(img(\s|$)|img-(?!circle|rounded|thumbnail)[^\s]*)/g, ' ');
+        this.media.className = this.media.className.replace(/(^|\s+)((img(\s|$)|img-(?!circle|rounded|thumbnail))[^\s]*)/g, ' ');
     },
     cancel: function () {
         this.trigger('cancel');
@@ -783,7 +784,9 @@ var fontIconsDialog = Widget.extend({
 });
 
 
-function createVideoNode(url) {
+function createVideoNode(url, options) {
+    options = options || {};
+
     // video url patterns(youtube, instagram, vimeo, dailymotion, youku)
     var ytRegExp = /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
     var ytMatch = url.match(ytRegExp);
@@ -835,6 +838,14 @@ function createVideoNode(url) {
         .attr('src', '//player.youku.com/embed/' + youkuMatch[1]);
     } else {
       // this is not a known video link. Now what, Cat? Now what?
+          $video = $('<iframe webkitallowfullscreen mozallowfullscreen allowfullscreen>')
+            .attr('width', '640')
+            .attr('height', '360')
+            .attr('src', url);
+    }
+
+    if (options.autoplay) {
+        $video.attr("src", $video.attr("src") + "?autoplay=1");
     }
 
     $video.attr('frameborder', 0);
@@ -851,6 +862,7 @@ var VideoDialog = Widget.extend({
     events : _.extend({}, Dialog.prototype.events, {
         'click input#urlvideo ~ button': 'get_video',
         'click input#embedvideo ~ button': 'get_embed_video',
+        'change input#autoplay': 'get_video',
         'change input#urlvideo': 'change_input',
         'keyup input#urlvideo': 'change_input',
         'change input#embedvideo': 'change_input',
@@ -869,6 +881,7 @@ var VideoDialog = Widget.extend({
         if ($media.hasClass("media_iframe_video")) {
             var src = $media.data('src');
             this.$("input#urlvideo").val(src);
+            this.$("input#autoplay").prop("checked", (src || "").indexOf("autoplay") >= 0);
             this.get_video();
         }
         return this._super();
@@ -893,7 +906,7 @@ var VideoDialog = Widget.extend({
     },
     get_video: function (event) {
         if (event) event.preventDefault();
-        var $video = createVideoNode(this.$("input#urlvideo").val());
+        var $video = createVideoNode(this.$("input#urlvideo").val(), {autoplay: this.$("input#autoplay").is(":checked")});
         this.$iframe.replaceWith($video);
         this.$iframe = $video;
         return false;
@@ -1060,17 +1073,17 @@ var LinkDialog = Dialog.extend({
         var isNewWindow = this.$('input.window-new').prop('checked');
 
         if ($e.hasClass('email-address') && $e.val().indexOf("@") !== -1) {
-            self.get_data_buy_mail(def, $e, isNewWindow, label, classes);
+            self.get_data_buy_mail(def, $e, isNewWindow, label, classes, test);
         } else {
-            self.get_data_buy_url(def, $e, isNewWindow, label, classes);
+            self.get_data_buy_url(def, $e, isNewWindow, label, classes, test);
         }
         return def;
     },
-    get_data_buy_mail: function (def, $e, isNewWindow, label, classes) {
+    get_data_buy_mail: function (def, $e, isNewWindow, label, classes, test) {
         var val = $e.val();
         def.resolve(val.indexOf("mailto:") === 0 ? val : 'mailto:' + val, isNewWindow, label, classes);
     },
-    get_data_buy_url: function (def, $e, isNewWindow, label, classes) {
+    get_data_buy_url: function (def, $e, isNewWindow, label, classes, test) {
         def.resolve($e.val(), isNewWindow, label, classes);
     },
     save: function () {
@@ -1079,7 +1092,7 @@ var LinkDialog = Dialog.extend({
         return this.get_data()
             .then(function (url, new_window, label, classes) {
                 self.data.url = url;
-                self.data.newWindow = new_window;
+                self.data.isNewWindow = new_window;
                 self.data.text = label;
                 self.data.className = classes.replace(/\s+/gi, ' ').replace(/^\s+|\s+$/gi, '');
 

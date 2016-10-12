@@ -3,14 +3,15 @@
 # * auth_signup
 # 
 # Translators:
+# Antonio Trueba, 2016
 # Pedro M. Baeza <pedro.baeza@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 10:27+0000\n"
-"PO-Revision-Date: 2015-10-04 00:54+0000\n"
-"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>\n"
+"POT-Creation-Date: 2016-09-22 13:16+0000\n"
+"PO-Revision-Date: 2016-09-23 09:28+0000\n"
+"Last-Translator: Martin Trigaux\n"
 "Language-Team: Spanish (http://www.transifex.com/odoo/odoo-9/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,13 +85,19 @@ msgid "Allow external users to sign up"
 msgstr "Permitir ingresar a usuarios externos"
 
 #. module: auth_signup
-#: code:addons/auth_signup/controllers/main.py:60
+#: code:addons/auth_signup/controllers/main.py:64
 #, python-format
 msgid "An email has been sent with credentials to reset your password"
 msgstr "Se ha enviado un correo electrónico con las credenciales para restablecer su contraseña"
 
 #. module: auth_signup
-#: code:addons/auth_signup/controllers/main.py:108
+#: code:addons/auth_signup/controllers/main.py:40
+#, python-format
+msgid "Another user is already registered using this email address."
+msgstr "Otro usuario se ha registrado usando este dirección de correo electrónico"
+
+#. module: auth_signup
+#: code:addons/auth_signup/controllers/main.py:115
 #, python-format
 msgid "Authentication Failed."
 msgstr "Autenticación fallida."
@@ -123,7 +130,13 @@ msgid "Connected"
 msgstr "Conectado"
 
 #. module: auth_signup
-#: code:addons/auth_signup/controllers/main.py:62
+#: code:addons/auth_signup/controllers/main.py:43
+#, python-format
+msgid "Could not create a new account."
+msgstr "No se ha podido crear una cuenta nueva."
+
+#. module: auth_signup
+#: code:addons/auth_signup/controllers/main.py:66
 #, python-format
 msgid "Could not reset your password"
 msgstr "No se puede restablecer su contraseña"
@@ -167,7 +180,7 @@ msgstr "Restablecer contraseña"
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_private
 msgid "Private Profile"
-msgstr "Perfil privado"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.ui.view,arch_db:auth_signup.login
@@ -175,7 +188,7 @@ msgid "Reset Password"
 msgstr "Restablecer contraseña"
 
 #. module: auth_signup
-#: code:addons/auth_signup/res_users.py:250
+#: code:addons/auth_signup/res_users.py:253
 #, python-format
 msgid "Reset password: invalid username or email"
 msgstr "Restablecimiento de contraseña: usuario o correo electrónico no válido"
@@ -239,7 +252,7 @@ msgstr "Plantilla de usuario para los nuevos usuarios creados a través del ingr
 #. module: auth_signup
 #: model:ir.model.fields,help:auth_signup.field_res_users_website_url
 msgid "The full URL to access the document through the website."
-msgstr "La URL completa para acceder al documento a través del sitio web."
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,help:auth_signup.field_base_config_settings_auth_signup_reset_password
@@ -254,37 +267,37 @@ msgstr "Usuarios"
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_published
 msgid "Visible in Website"
-msgstr "Visible en el sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_description
 msgid "Website Partner Full Description"
-msgstr "Descripción completa de la empresa para el sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_short_description
 msgid "Website Partner Short Description"
-msgstr "Descripción corta de la empresa para el sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_url
 msgid "Website URL"
-msgstr "URL del sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_meta_description
 msgid "Website meta description"
-msgstr "Meta descripción del sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_meta_keywords
 msgid "Website meta keywords"
-msgstr "Meta palabras clave del sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_website_meta_title
 msgid "Website meta title"
-msgstr "Meta título del sitio web"
+msgstr ""
 
 #. module: auth_signup
 #: model:ir.ui.view,arch_db:auth_signup.fields
@@ -310,4 +323,4 @@ msgstr "Por ejemplo, JJohn Smith"
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users_self
 msgid "unknown"
-msgstr "desconocido"
+msgstr ""

@@ -3,12 +3,13 @@
 # * base_action_rule
 # 
 # Translators:
+# AYHAN KIZILTAN <akiziltan76@hotmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-09 09:18+0000\n"
-"PO-Revision-Date: 2015-10-12 12:56+0000\n"
+"POT-Creation-Date: 2016-09-22 13:16+0000\n"
+"PO-Revision-Date: 2016-09-23 09:57+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Turkish (http://www.transifex.com/odoo/odoo-9/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 #. module: base_action_rule
 #: model:ir.ui.view,arch_db:base_action_rule.view_base_action_rule_form
 msgid "<b>Please choose the document type before setting the conditions.</b>"
-msgstr ""
+msgstr "<b>Koşulları oluşturmadan önce lütfen belge türünü seçin.</b>"
 
 #. module: base_action_rule
 #: model:ir.ui.view,arch_db:base_action_rule.view_base_action_rule_form
@@ -29,9 +30,14 @@ msgid "Action Rule"
 msgstr "Eylem Kuralı"
 
 #. module: base_action_rule
+#: model:ir.model,name:base_action_rule.model_base_action_rule_line_test
+msgid "Action Rule Line Test"
+msgstr ""
+
+#. module: base_action_rule
 #: model:ir.model,name:base_action_rule.model_base_action_rule_lead_test
 msgid "Action Rule Test"
-msgstr ""
+msgstr "Eylem Kuralı Testi"
 
 #. module: base_action_rule
 #: model:ir.model,name:base_action_rule.model_base_action_rule
@@ -88,12 +94,12 @@ msgstr "İptal Edildi"
 #. module: base_action_rule
 #: model:ir.model.fields,help:base_action_rule.field_base_action_rule_lead_test_customer
 msgid "Check this box if this contact is a customer."
-msgstr ""
+msgstr "Bu kişi bir müşteriyse bu kutuyu işaretle"
 
 #. module: base_action_rule
 #: model:ir.actions.act_window,help:base_action_rule.base_action_rule_act
 msgid "Click to setup a new automated action rule."
-msgstr ""
+msgstr "Yeni bir otomatik eylem kuralı ayarlamak için tıkla."
 
 #. module: base_action_rule
 #: selection:base.action.rule.lead.test,state:0
@@ -118,11 +124,13 @@ msgstr "Oluşturma Tarihi"
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_create_uid
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_create_uid
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_create_uid
 msgid "Created by"
 msgstr "Oluşturan"
 
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_create_date
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_create_date
 msgid "Created on"
 msgstr "Oluşturuldu"
 
@@ -157,6 +165,7 @@ msgstr "Gecikme türü"
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_display_name
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_display_name
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_display_name
 msgid "Display Name"
 msgstr "Adı Göster"
 
@@ -201,6 +210,7 @@ msgstr "Saat"
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_id
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_id
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_id
 msgid "ID"
 msgstr "ID"
 
@@ -236,7 +246,7 @@ msgstr "Bu aynı \"Arama\" görünümünde \"Geçerli Süzgeçi Kaydet\" menüs�
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_customer
 msgid "Is a Customer"
-msgstr ""
+msgstr "Bu bir Müşterimi"
 
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_date_action_last
@@ -246,6 +256,7 @@ msgstr "Son İşlem"
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule___last_update
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test___last_update
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test___last_update
 msgid "Last Modified on"
 msgstr "Son değiştirme tarihi"
 
@@ -256,15 +267,22 @@ msgstr "Son Çalıştırma"
 
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_write_uid
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_write_uid
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_write_uid
 msgid "Last Updated by"
 msgstr "Son Güncelleyen"
 
 #. module: base_action_rule
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_write_date
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_write_date
 #: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_write_date
 msgid "Last Updated on"
 msgstr "Son Güncellenen"
+
+#. module: base_action_rule
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_lead_id
+msgid "Lead id"
+msgstr ""
 
 #. module: base_action_rule
 #: selection:base.action.rule,trg_date_range_type:0
@@ -280,6 +298,11 @@ msgstr "Model"
 #: selection:base.action.rule,trg_date_range_type:0
 msgid "Months"
 msgstr "Aylar"
+
+#. module: base_action_rule
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_name
+msgid "Name"
+msgstr ""
 
 #. module: base_action_rule
 #: selection:base.action.rule.lead.test,state:0
@@ -415,6 +438,11 @@ msgid ""
 msgstr ""
 
 #. module: base_action_rule
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_line_test_user_id
+msgid "User id"
+msgstr ""
+
+#. module: base_action_rule
 #: model:ir.model.fields,help:base_action_rule.field_base_action_rule_trg_date_calendar_id
 msgid ""
 "When calculating a day-based timed condition, it is possible to use a "
@@ -443,4 +471,9 @@ msgstr "İşaret kaldırılırsa, kural gizlenecek ve çalıştırılamayacaktı
 msgid ""
 "You may also use filters instead of choosing records. In order to create a "
 "new filter:"
+msgstr ""
+
+#. module: base_action_rule
+#: model:ir.model.fields,field_description:base_action_rule.field_base_action_rule_lead_test_line_ids
+msgid "unknown"
 msgstr ""

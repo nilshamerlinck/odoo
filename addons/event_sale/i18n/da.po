@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 14:40+0000\n"
-"PO-Revision-Date: 2015-10-14 20:47+0000\n"
+"POT-Creation-Date: 2016-09-22 13:16+0000\n"
+"PO-Revision-Date: 2016-09-23 08:55+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Danish (http://www.transifex.com/odoo/odoo-9/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,11 @@ msgid "Apply"
 msgstr "Anvend"
 
 #. module: event_sale
+#: model:ir.model.fields,field_description:event_sale.field_product_product_asset_category_id
+msgid "Asset Type"
+msgstr ""
+
+#. module: event_sale
 #: model:ir.model,name:event_sale.model_event_registration
 msgid "Attendee"
 msgstr "Deltager"
@@ -41,7 +46,7 @@ msgstr ""
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket_seats_available
 msgid "Available Seats"
-msgstr ""
+msgstr "Disponible pladse"
 
 #. module: event_sale
 #: model:ir.ui.view,arch_db:event_sale.view_event_registration_editor_form
@@ -81,6 +86,11 @@ msgstr "Oprettet af"
 #: model:ir.model.fields,field_description:event_sale.field_registration_editor_line_create_date
 msgid "Created on"
 msgstr "Oprettet den"
+
+#. module: event_sale
+#: model:ir.model.fields,field_description:event_sale.field_product_product_deferred_revenue_category_id
+msgid "Deferred Revenue Type"
+msgstr ""
 
 #. module: event_sale
 #: model:ir.model.fields,help:event_sale.field_event_event_ticket_seats_max
@@ -143,7 +153,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:event_sale.field_registration_editor_line_event_ticket_id
 #: model:ir.model.fields,field_description:event_sale.field_sale_order_line_event_ticket_id
 msgid "Event Ticket"
-msgstr ""
+msgstr "Arrangementsbillet"
 
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_product_product_event_ticket_ids
@@ -176,7 +186,7 @@ msgstr "Id"
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket_is_expired
 msgid "Is Expired"
-msgstr ""
+msgstr "Er udløbet"
 
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket___last_update
@@ -207,7 +217,7 @@ msgstr ""
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket_seats_max
 msgid "Maximum Available Seats"
-msgstr ""
+msgstr "Maximum disponible pladser"
 
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket_name
@@ -272,12 +282,12 @@ msgstr "Produktskabelon"
 #. module: event_sale
 #: model:ir.ui.view,arch_db:event_sale.view_event_registration_editor_form
 msgid "Registration"
-msgstr ""
+msgstr "Tilmelding"
 
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket_registration_ids
 msgid "Registrations"
-msgstr ""
+msgstr "Tilmeldinger"
 
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_registration_editor_event_registration_ids
@@ -287,7 +297,7 @@ msgstr ""
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_event_ticket_seats_reserved
 msgid "Reserved Seats"
-msgstr ""
+msgstr "Reserverede pladser"
 
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_registration_editor_sale_order_id
@@ -336,7 +346,7 @@ msgstr "Spring over"
 #. module: event_sale
 #: model:ir.model.fields,field_description:event_sale.field_event_registration_sale_order_id
 msgid "Source Sale Order"
-msgstr ""
+msgstr "Ordre kilde"
 
 #. module: event_sale
 #: model:event.event.ticket,name:event_sale.event_0_ticket_1

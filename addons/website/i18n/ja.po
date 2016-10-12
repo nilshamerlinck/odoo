@@ -3,12 +3,14 @@
 # * website
 # 
 # Translators:
+# Yoshi Tashiro <tashiro@roomsfor.hk>, 2015-2016
+# 高木正勝 <masakatsu.takagi@pro-spire.co.jp>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-09 09:18+0000\n"
-"PO-Revision-Date: 2015-10-30 09:21+0000\n"
+"PO-Revision-Date: 2016-10-08 09:01+0000\n"
 "Last-Translator: Yoshi Tashiro <tashiro@roomsfor.hk>\n"
 "Language-Team: Japanese (http://www.transifex.com/odoo/odoo-9/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1039,7 +1041,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_act_server_website_published
 msgid "Available on the Website"
-msgstr ""
+msgstr "ウェブサイトで使用可能"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1286,7 +1288,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
 msgid "Color"
-msgstr ""
+msgstr "色"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -1326,7 +1328,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_comparisons
 msgid "Complete CRM for any size team"
-msgstr ""
+msgstr "どのサイズのチームにも応じた完全なCRM"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_compress_html
@@ -1577,7 +1579,7 @@ msgstr "説明"
 #: code:addons/website/static/src/xml/website.seo.xml:136
 #, python-format
 msgid "Description..."
-msgstr ""
+msgstr "内容..."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1654,7 +1656,7 @@ msgstr ""
 #: code:addons/website/static/src/js/website.tour.banner.js:66
 #, python-format
 msgid "Drag & Drop This Block"
-msgstr ""
+msgstr "このブロックをドラッグ&ドロップしてください"
 
 #. module: website
 #. openerp-web
@@ -1774,7 +1776,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Example of Good Homepage"
-msgstr ""
+msgstr "よいホームページの例"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -1811,7 +1813,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_config_settings
 msgid "Extra Features"
-msgstr ""
+msgstr "追加機能"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -1822,7 +1824,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_config_settings_social_facebook
 #: model:ir.model.fields,field_description:website.field_website_social_facebook
 msgid "Facebook Account"
-msgstr ""
+msgstr "Facebookアカウント"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -1994,7 +1996,7 @@ msgstr ""
 #: code:addons/website/static/src/js/website.tour.banner.js:80
 #, python-format
 msgid "Good Job!"
-msgstr ""
+msgstr "よく出来ました！"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_config_settings_google_analytics_key
@@ -2101,13 +2103,13 @@ msgstr ""
 #: model:website.menu,name:website.menu_homepage
 #: model:website.menu,name:website.website2_menu_homepage
 msgid "Home"
-msgstr "自宅"
+msgstr "ホーム"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.403 model:ir.ui.view,arch_db:website.404
 #: model:ir.ui.view,arch_db:website.footer_custom
 msgid "Homepage"
-msgstr ""
+msgstr "ホームページ"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website2_homepage
@@ -2242,7 +2244,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
 msgid "Installed Applications"
-msgstr ""
+msgstr "インストール済みアプリ"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
@@ -2365,7 +2367,7 @@ msgstr "最終更新日"
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Launch"
-msgstr ""
+msgstr "起動"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2402,7 +2404,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_config_settings_social_linkedin
 #: model:ir.model.fields,field_description:website.field_website_social_linkedin
 msgid "LinkedIn Account"
-msgstr ""
+msgstr "LinkedInアカウント"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_feature_grid
@@ -2613,7 +2615,7 @@ msgstr "なし"
 #: model:ir.ui.view,arch_db:website.publish_short
 #, python-format
 msgid "Not Published"
-msgstr ""
+msgstr "未公開"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.show_website_info
@@ -2732,7 +2734,7 @@ msgstr "OK"
 #: code:addons/website/static/src/xml/website.backend.xml:5
 #, python-format
 msgid "On Website"
-msgstr ""
+msgstr "ウェブサイト上に"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -2999,7 +3001,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website.publish_short
 #, python-format
 msgid "Published"
-msgstr ""
+msgstr "公開済"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.snippet_options
@@ -3034,7 +3036,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.template_partner_comment
 msgid "Recipient"
-msgstr ""
+msgstr "宛先"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3141,7 +3143,7 @@ msgstr ""
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_search_box
 msgid "Search..."
-msgstr ""
+msgstr "検索..."
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_features
@@ -3240,7 +3242,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_ui_view_customize_show
 msgid "Show As Optional Inherit"
-msgstr ""
+msgstr "任意の継承として表示"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3294,7 +3296,7 @@ msgstr ""
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_config_settings
-msgid "Speed"
+msgid "Optimization"
 msgstr ""
 
 #. module: website
@@ -3820,7 +3822,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website_published_mixin_website_published
 msgid "Visible in Website"
-msgstr ""
+msgstr "ウェブサイトに表示"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3877,7 +3879,7 @@ msgstr "ウェブサイト"
 #. module: website
 #: model:ir.ui.menu,name:website.menu_website_configuration
 msgid "Website Admin"
-msgstr ""
+msgstr "ウェブサイト管理"
 
 #. module: website
 #: model:ir.actions.act_window,name:website.action_module_website
@@ -3892,7 +3894,7 @@ msgstr ""
 #. module: website
 #: model:ir.actions.act_url,name:website.action_website_homepage
 msgid "Website Homepage"
-msgstr ""
+msgstr "ウェブサイトホームページ"
 
 #. module: website
 #: model:ir.actions.act_window,name:website.action_website_menu
@@ -3924,7 +3926,7 @@ msgstr ""
 #. module: website
 #: model:crm.team,name:website.salesteam_website_sales
 msgid "Website Sales"
-msgstr ""
+msgstr "ウェブサイト販売"
 
 #. module: website
 #: model:ir.actions.act_window,name:website.action_website_configuration
@@ -3941,7 +3943,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_ir_act_server_website_url
 #: model:ir.model.fields,field_description:website.field_website_published_mixin_website_url
 msgid "Website URL"
-msgstr ""
+msgstr "ウェブサイトURL"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -3962,19 +3964,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_ir_ui_view_website_meta_description
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_website_meta_description
 msgid "Website meta description"
-msgstr ""
+msgstr "ウェブサイトメタディスクリプション"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_ui_view_website_meta_keywords
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_website_meta_keywords
 msgid "Website meta keywords"
-msgstr ""
+msgstr "ウェブサイトメタキーワード"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_ui_view_website_meta_title
 #: model:ir.model.fields,field_description:website.field_website_seo_metadata_website_meta_title
 msgid "Website meta title"
-msgstr ""
+msgstr "ウェブサイトメタタイトル"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.view_website_tree
@@ -3984,12 +3986,12 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_base_language_install_website_ids
 msgid "Websites to translate"
-msgstr ""
+msgstr "翻訳対象ウェブサイト"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
 msgid "Welcome"
-msgstr ""
+msgstr "ようこそ！"
 
 #. module: website
 #. openerp-web
@@ -4018,7 +4020,7 @@ msgstr ""
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_ui_view_page
 msgid "Whether this view is a web page template (complete)"
-msgstr ""
+msgstr "このビューはウェブページテンプレート (完全)"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.s_faq
@@ -4261,7 +4263,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:website.field_website_config_settings_social_youtube
 #: model:ir.model.fields,field_description:website.field_website_social_youtube
 msgid "Youtube Account"
-msgstr ""
+msgstr "YouTubeアカウント"
 
 #. module: website
 #: model:ir.ui.view,arch_db:website.website_planner
@@ -4412,7 +4414,7 @@ msgstr ""
 #. module: website
 #: model:ir.model,name:website.model_ir_actions_server
 msgid "ir.actions.server"
-msgstr ""
+msgstr "ir.actions.server"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_attachment
