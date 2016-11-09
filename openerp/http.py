@@ -85,6 +85,20 @@ NO_POSTMORTEM = (openerp.osv.orm.except_orm,
                  openerp.exceptions.AccessDenied,
                  openerp.exceptions.Warning,
                  openerp.exceptions.RedirectWarning)
+
+#----------------------------------------------------------
+# Datadog
+#----------------------------------------------------------
+
+from datadog import initialize, statsd
+
+options = {
+    'api_key': '',
+    'app_key': '',
+}
+
+initialize(**options)
+
 def dispatch_rpc(service_name, method, params):
     """ Handle a RPC call.
 
@@ -120,6 +134,8 @@ def dispatch_rpc(service_name, method, params):
             if psutil:
                 end_rss, end_vms = memory_info(psutil.Process(os.getpid()))
             logline = '%s.%s time:%.3fs mem: %sk -> %sk (diff: %sk)' % (service_name, method, end_time - start_time, start_vms / 1024, end_vms / 1024, (end_vms - start_vms)/1024)
+            duration = end_time - start_time
+            statsd.histogram('odoo.rpc', duration, tags=['service:' + service_name, 'method:' + method])
             if rpc_response_flag:
                 openerp.netsvc.log(rpc_response, logging.DEBUG, logline, result)
             else:
