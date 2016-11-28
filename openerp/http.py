@@ -134,8 +134,6 @@ def dispatch_rpc(service_name, method, params):
             if psutil:
                 end_rss, end_vms = memory_info(psutil.Process(os.getpid()))
             logline = '%s.%s time:%.3fs mem: %sk -> %sk (diff: %sk)' % (service_name, method, end_time - start_time, start_vms / 1024, end_vms / 1024, (end_vms - start_vms)/1024)
-            duration = end_time - start_time
-            statsd.histogram('odoo.rpc', duration, tags=['service:' + service_name, 'method:' + method])
             if rpc_response_flag:
                 openerp.netsvc.log(rpc_response, logging.DEBUG, logline, result)
             else:
@@ -690,6 +688,18 @@ class JsonRequest(WebRequest):
                 method = self.params.get('method')
                 args = self.params.get('args', [])
 
+                ##
+                # to provide a meaningful model:method tag to datadog
+                ##
+                
+                if endpoint == 'jsonrpc' and model is None and method in ('execute', 'execute_kw', 'exec_workflow'): # odoorpc
+                    model = args[3]
+                    method = args[4]
+                elif endpoint == 'exec_workflow' and method is None:
+                    method = self.params.get('signal')
+                elif endpoint == 'search_read': 
+                    method = 'search_read'
+
                 start_time = time.time()
                 _, start_vms = 0, 0
                 if psutil:
@@ -707,6 +717,11 @@ class JsonRequest(WebRequest):
                     _, end_vms = memory_info(psutil.Process(os.getpid()))
                 logline = '%s: %s %s: time:%.3fs mem: %sk -> %sk (diff: %sk)' % (
                     endpoint, model, method, end_time - start_time, start_vms / 1024, end_vms / 1024, (end_vms - start_vms)/1024)
+                
+                duration = end_time - start_time
+                if model and method:
+                    statsd.histogram('odoo.rpc', duration, tags=['rpc:' + model + ':' + method])
+
                 if rpc_response_flag:
                     rpc_response.debug('%s, %s', logline, pprint.pformat(result))
                 else:
