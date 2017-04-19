@@ -10,9 +10,11 @@
 # Gustavo Valverde, 2016
 # Gustavo Valverde, 2016
 # Javier Ramirez <elbomba887@gmail.com>, 2015
+# Jose Ernesto Mendez <jose.ernesto.mendez@gmail.com>, 2017
 # José Vicente <txusev@gmail.com>, 2015
+# Juliano Henriquez <juliano@consultoriahenca.com>, 2016
 # Leonardo Chianea <noamixcontenidos@gmail.com>, 2015
-# Luis Triana <luis.triana@jarsa.com.mx>, 2015
+# Luis M. Triana <luis.triana@jarsa.com.mx>, 2015
 # Manuel Gómez <nuelgoz@gmail.com>, 2015
 # Marco Cabral <marco@sisne.do>, 2016
 # oihane <oihanecruce@gmail.com>, 2015
@@ -22,8 +24,8 @@ msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-22 13:16+0000\n"
-"PO-Revision-Date: 2016-10-08 16:57+0000\n"
-"Last-Translator: Gustavo Valverde\n"
+"PO-Revision-Date: 2017-03-29 08:40+0000\n"
+"Last-Translator: Martin Trigaux\n"
 "Language-Team: Spanish (Dominican Republic) (http://www.transifex.com/odoo/odoo-9/language/es_DO/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -126,7 +128,7 @@ msgstr "# de transacción"
 #. module: account
 #: model:mail.template,subject:account.email_template_edi_invoice
 msgid "${object.company_id.name} Invoice (Ref ${object.number or 'n/a'})"
-msgstr ""
+msgstr "${object.company_id.name} Factura (Ref ${object.number or 'n/a'})"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:321
@@ -161,12 +163,12 @@ msgstr ", si los módulos de contabilidad o compras están instalados"
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_account_form
 msgid "-> Reconcile"
-msgstr ""
+msgstr "Conciliar"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.view_move_line_form
 msgid "-> View reconciled entries"
-msgstr ""
+msgstr "Ver entradas conciliadas"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:322
@@ -334,7 +336,7 @@ msgstr "<span class=\"panel-title\">\n<strong>Registrar sus facturas</strong>\n<
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "<span title=\"Balance in Odoo\">Balance in GL</span>"
-msgstr ""
+msgstr "<span title=\"Balance in Odoo\">Balance en MG</span>"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -1716,7 +1718,7 @@ msgstr "Formateo automático"
 #: code:addons/account/static/src/xml/account_reconciliation.xml:15
 #, python-format
 msgid "Automatic reconciliation"
-msgstr ""
+msgstr "Conciliación automática"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:469
@@ -1739,7 +1741,7 @@ msgstr "En espera de pagos"
 #: code:addons/account/models/chart_template.py:156
 #, python-format
 msgid "BILL"
-msgstr "FACTURA"
+msgstr "FCMP"
 
 #. module: account
 #: selection:account.payment.term.line,value:0
@@ -1922,7 +1924,7 @@ msgstr "Los estados de cuenta de banco están completamente conciliados."
 #: model:ir.model.fields,field_description:account.field_account_invoice_tax_base
 #: model:ir.ui.view,arch_db:account.report_invoice_document
 msgid "Base"
-msgstr ""
+msgstr "Base"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -1961,7 +1963,7 @@ msgstr "Facturación"
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "Bills"
-msgstr ""
+msgstr "Facturas"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -3043,7 +3045,7 @@ msgstr "Factura de cliente"
 #: model:ir.ui.view,arch_db:account.account_planner
 #, python-format
 msgid "Customer Invoices"
-msgstr "Facturas de cliente"
+msgstr "Facturas de Clientes"
 
 #. module: account
 #: code:addons/account/models/account_payment.py:443
@@ -3304,7 +3306,7 @@ msgstr "Diferencia"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment_writeoff_account_id
 msgid "Difference Account"
-msgstr "Cuenta diferencial"
+msgstr "Cuenta de Diferencia"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_difference
@@ -3557,7 +3559,7 @@ msgstr "Duplicados"
 #: code:addons/account/models/chart_template.py:158
 #, python-format
 msgid "EXCH"
-msgstr "CAMBIO"
+msgstr "CAMB"
 
 #. module: account
 #. openerp-web
@@ -3683,7 +3685,7 @@ msgstr "Plantilla Excel"
 #: code:addons/account/models/chart_template.py:158
 #, python-format
 msgid "Exchange Difference"
-msgstr "Diferencia de cambio"
+msgstr "Diferencia de Cambio"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company_currency_exchange_journal_id
@@ -4242,7 +4244,7 @@ msgstr "ID (identificación)"
 #: code:addons/account/models/chart_template.py:155
 #, python-format
 msgid "INV"
-msgstr "INV"
+msgstr "FVNT"
 
 #. module: account
 #: code:addons/account/models/account_bank_statement.py:394
@@ -4838,7 +4840,7 @@ msgstr "Elementos"
 #. module: account
 #: model:ir.ui.view,arch_db:account.report_generalledger
 msgid "JRNL"
-msgstr "LIBRO"
+msgstr "DRIO"
 
 #. module: account
 #: selection:res.company,fiscalyear_last_month:0
@@ -5378,7 +5380,7 @@ msgstr "Cuenta de Pérdida por Cambio de Tasa"
 #: code:addons/account/models/chart_template.py:157
 #, python-format
 msgid "MISC"
-msgstr "Varios"
+msgstr "MISC"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -5508,14 +5510,14 @@ msgstr "Mensajes"
 #: model:ir.ui.view,arch_db:account.view_account_journal_form
 #: model:ir.ui.view,arch_db:account.view_account_journal_search
 msgid "Miscellaneous"
-msgstr "Miscelánea"
+msgstr "Misceláneas"
 
 #. module: account
 #: code:addons/account/models/chart_template.py:157
 #: model:ir.ui.view,arch_db:account.view_account_move_filter
 #, python-format
 msgid "Miscellaneous Operations"
-msgstr "Operaciones varias"
+msgstr "Operaciones Misceláneas"
 
 #. module: account
 #. openerp-web
@@ -6271,7 +6273,7 @@ msgstr "Fecha de pago"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment_payment_difference_handling
 msgid "Payment Difference"
-msgstr "Diferencia en pago"
+msgstr "Diferencia en Pago"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_abstract_payment_journal_id
@@ -8193,6 +8195,14 @@ msgid "The sequence of journal %s is deactivated."
 msgstr "La secuencia del diario %s está desactivada."
 
 #. module: account
+#: code:addons/account/models/company.py:91
+#, python-format
+msgid ""
+"There are still unposted entries in the period you want to lock. You should "
+"either post or delete them."
+msgstr ""
+
+#. module: account
 #: code:addons/account/models/account_bank_statement.py:170
 #, python-format
 msgid ""
@@ -8704,7 +8714,7 @@ msgstr "Tipo"
 #: code:addons/account/models/chart_template.py:738
 #, python-format
 msgid "Undistributed Profits/Losses"
-msgstr "Pérdidas/ganancias no distribuídas"
+msgstr "Pérdidas/Ganancias No Distribuídas"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_line_price_unit
@@ -8967,7 +8977,7 @@ msgstr "Factura de proveedor"
 #: model:ir.ui.view,arch_db:account.account_planner
 #, python-format
 msgid "Vendor Bills"
-msgstr "Facturas de proveedor"
+msgstr "Facturas de Proveedor"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner

@@ -3,12 +3,13 @@
 # * account
 # 
 # Translators:
+# Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-22 13:16+0000\n"
-"PO-Revision-Date: 2016-09-23 08:57+0000\n"
+"PO-Revision-Date: 2017-03-29 08:40+0000\n"
 "Last-Translator: Martin Trigaux\n"
 "Language-Team: Spanish (Costa Rica) (http://www.transifex.com/odoo/odoo-9/language/es_CR/)\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +189,7 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.report_trialbalance
 msgid ": Trial Balance"
-msgstr ""
+msgstr ": Balance de comprobación"
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
@@ -4454,7 +4455,7 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid "In your old accounting software, print a trial balance"
-msgstr ""
+msgstr "En su software contable anterior imprima un balance de comprobación"
 
 #. module: account
 #: selection:account.payment.method,payment_type:0
@@ -8179,6 +8180,14 @@ msgid "The sequence of journal %s is deactivated."
 msgstr ""
 
 #. module: account
+#: code:addons/account/models/company.py:91
+#, python-format
+msgid ""
+"There are still unposted entries in the period you want to lock. You should "
+"either post or delete them."
+msgstr ""
+
+#. module: account
 #: code:addons/account/models/account_bank_statement.py:170
 #, python-format
 msgid ""
@@ -8664,12 +8673,12 @@ msgstr ""
 #: model:ir.actions.report.xml,name:account.action_report_trial_balance
 #: model:ir.ui.menu,name:account.menu_general_Balance_report
 msgid "Trial Balance"
-msgstr "Balance de sumas y saldos"
+msgstr "Balance de comprobación"
 
 #. module: account
 #: model:ir.model,name:account.model_account_balance_report
 msgid "Trial Balance Report"
-msgstr "Informe de sumas y saldos"
+msgstr "Balance de comprobación"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account_internal_type
@@ -9444,7 +9453,7 @@ msgstr ""
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner
 msgid "Your Trial Balance (list of accounts and their balances)."
-msgstr ""
+msgstr "Su balance de comprobación (lista de cuentas y sus saldos)."
 
 #. module: account
 #: model:ir.ui.view,arch_db:account.account_planner

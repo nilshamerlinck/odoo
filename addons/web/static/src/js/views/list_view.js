@@ -280,7 +280,7 @@ var ListView = View.extend( /** @lends instance.web.ListView# */ {
         if (!this.$buttons) {
             this.$buttons = $(QWeb.render("ListView.buttons", {'widget': this}));
 
-            this.$buttons.find('.o_list_button_add').click(this.proxy('do_add_record'));
+            this.$buttons.on('click', '.o_list_button_add', this.proxy('do_add_record'));
 
             $node = $node || this.options.$buttons;
             if ($node) {
@@ -560,11 +560,12 @@ var ListView = View.extend( /** @lends instance.web.ListView# */ {
                 self.records.remove(record);
                 return;
             }
-            _.each(values, function (value, key) {
+            // _.each is broken if a field "length" is present
+            for (var key in values) {
                 if (fields[key] && fields[key].type === 'many2many')
                     record.set(key + '__display', false, {silent: true});
-                record.set(key, value, {silent: true});            
-            });
+                record.set(key, values[key], {silent: true});
+            }
             record.trigger('change', record);
 
             /* When a record is reloaded, there is a rendering lag because of the addition/suppression of 
@@ -1026,9 +1027,11 @@ ListView.List = Class.extend( /** @lends instance.web.ListView.List# */{
                         '[data-id=' + record.get('id') + ']');
                 }
 
-                var $newRow = $(self.render_record(record));
-                $newRow.find('.oe_list_record_selector input').prop('checked', !!$row.find('.oe_list_record_selector input').prop('checked'));
-                $row.replaceWith($newRow);
+                if ($row.length) {
+                    var $newRow = $(self.render_record(record));
+                    $newRow.find('.oe_list_record_selector input').prop('checked', !!$row.find('.oe_list_record_selector input').prop('checked'));
+                    $row.replaceWith($newRow);
+                }
             },
             'add': function (ev, records, record, index) {
                 var $new_row = $(self.render_record(record));

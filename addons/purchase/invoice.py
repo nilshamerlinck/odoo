@@ -157,6 +157,7 @@ class AccountInvoice(models.Model):
                                     valuation_price_unit_total += val_stock_move.price_unit * val_stock_move.product_qty
                                     valuation_total_qty += val_stock_move.product_qty
                                 valuation_price_unit = valuation_price_unit_total / valuation_total_qty
+                                valuation_price_unit = self.env['product.uom']._compute_price(i_line.product_id.uom_id.id, valuation_price_unit, i_line.uom_id.id)
                         if inv.currency_id.id != company_currency.id:
                             valuation_price_unit = company_currency.with_context(date=inv.date_invoice).compute(valuation_price_unit, inv.currency_id, round=False)
                         if float_compare(valuation_price_unit, i_line.price_unit, precision_digits=product_prec) != 0\
@@ -164,10 +165,16 @@ class AccountInvoice(models.Model):
                                 and acc:
                             # price with discount and without tax included
                             price_unit = i_line.price_unit * (1 - (i_line.discount or 0.0) / 100.0)
+                            tax_ids = []
                             if line['tax_ids']:
                                 #line['tax_ids'] is like [(4, tax_id, None), (4, tax_id2, None)...]
                                 taxes = self.env['account.tax'].browse([x[1] for x in line['tax_ids']])
                                 price_unit = taxes.with_context(round=False).compute_all(price_unit, currency=inv.currency_id, quantity=1.0)['total_excluded']
+                                for tax in taxes:
+                                    tax_ids.append((4, tax.id, None))
+                                    for child in tax.children_tax_ids:
+                                        if child.type_tax_use != 'none':
+                                            tax_ids.append((4, child.id, None))
                             price_before = line.get('price', 0.0)
                             line.update({'price': round(valuation_price_unit * line['quantity'], account_prec)})
                             diff_res.append({
@@ -180,6 +187,7 @@ class AccountInvoice(models.Model):
                                 'product_id': line['product_id'],
                                 'uom_id': line['uom_id'],
                                 'account_analytic_id': line['account_analytic_id'],
+                                'tax_ids': tax_ids,
                                 })
                 return diff_res
         return []
