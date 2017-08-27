@@ -399,6 +399,7 @@ class PreforkServer(CommonServer):
         self.workers_http = {}
         self.workers_cron = {}
         self.workers = {}
+        self.last_worker_spawned_time = 0
         self.generation = 0
         self.queue = []
         self.long_polling_pid = None
@@ -429,6 +430,12 @@ class PreforkServer(CommonServer):
             _logger.warn("Dropping signal: %s", sig)
 
     def worker_spawn(self, klass, workers_registry):
+        now = time.time()
+        if (now - self.last_worker_spawned_time) <= 10: # FIXME: should be in config
+            return
+
+        _logger.info("Spawning new %s", klass.__name__)
+        self.last_worker_spawned_time = time.time()
         self.generation += 1
         worker = klass(self)
         pid = os.fork()
@@ -518,11 +525,11 @@ class PreforkServer(CommonServer):
 
     def process_spawn(self):
         if config['xmlrpc']:
-            while len(self.workers_http) < self.population:
+            if len(self.workers_http) < self.population:
                 self.worker_spawn(WorkerHTTP, self.workers_http)
             if not self.long_polling_pid:
                 self.long_polling_spawn()
-        while len(self.workers_cron) < config['max_cron_threads']:
+        if len(self.workers_cron) < config['max_cron_threads']:
             self.worker_spawn(WorkerCron, self.workers_cron)
 
     def sleep(self):
@@ -708,6 +715,10 @@ class Worker(object):
         signal.signal(signal.SIGTERM, signal.SIG_DFL)
         signal.signal(signal.SIGCHLD, signal.SIG_DFL)
 
+        openerp.http.root.load_addons()
+        openerp.http.root._loaded = True
+        _logger.info("Addons loaded for %s (%s)", self.__class__.__name__, self.pid)
+
     def stop(self):
         pass
 
@@ -751,6 +762,7 @@ class WorkerHTTP(Worker):
     def process_work(self):
         try:
             client, addr = self.multi.socket.accept()
+            _logger.info("Worker (%s) processing request", self.pid)
             self.process_request(client, addr)
         except socket.error, e:
             if e[0] not in (errno.EAGAIN, errno.ECONNABORTED):
